@@ -21,5 +21,17 @@
 }
 
 .content {
-  
+  line-height: 1.6;
+  color: var(-gray-300);
+  margin-top: 1.5rem;
+}
+
+.content p {
+  margin-top: 1rem;
+}
+
+.content a {
+  font-size: bold;
+  color: var(--green-500);
+  text-decoration: none;
 }
