@@ -5,9 +5,12 @@ export function Post() {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
+          
           <img
             className={styles.avatar}
-            src="https://avatars.githubusercontent.com/u/81588649?v=4" />
+            src="https://avatars.githubusercontent.com/u/81588649?v=4"
+          />
+
             <div className={styles.authorInfo}>
               <strong>Martin Brazon</strong>
               <span>Web Developer</span>
@@ -18,7 +21,7 @@ export function Post() {
           title="11 de fevereiro ás 04:12"
           dateTime="2022-02-2022 04:12:22"
         >
-          Publicado há uma hora
+          Publicado há 1 hora
         </time>
       </header>
 
