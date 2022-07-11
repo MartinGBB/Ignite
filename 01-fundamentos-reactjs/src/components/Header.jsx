@@ -7,7 +7,6 @@ export function Header() {
   return (
     <header className={styles.header}>
       <img src={ igniteLogo } alt="logo do ignite" />
-      <strong>Ignite Feed</strong>
     </header>
   );
 }
