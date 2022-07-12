@@ -36,7 +36,7 @@ export function Post() {
           <a href="">#novoprojeto</a> {' '}
           <a href="">#nlw</a> {' '}
           <a href="">#rocketseat</a> {' '}
-          </p>
+        </p>
       </div>
     </article>
   )
