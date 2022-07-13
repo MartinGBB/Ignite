@@ -1,8 +1,5 @@
-export function Avatar() {
+export function Avatar(props) {
   return (
-    <img
-      className={styles.avatar}
-      src="https://avatars.githubusercontent.com/u/81588649?v=4"
-    />
+    <img className={styles.avatar} src={props.src} />
   );
 }
