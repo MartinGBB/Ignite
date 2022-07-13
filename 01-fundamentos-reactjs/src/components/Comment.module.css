@@ -53,3 +53,30 @@
 .commentContent header button:hover {
   color: var(--red-500);
 }
+
+.commentContent p {
+  margin-top: 1rem; 
+  color: var(--gray-300);
+}
+
+.commentBox footer {
+  margin-top: 1rem;
+}
+
+.commentBox footer button {
+  background: transparent;
+  color: var(--gray-400);
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.commentBox footer button:hover {
+  color: var(--green-300);
+}
+
+.commentBox footer button svg {
+  margin-right: 0.5rem;
+}
+
