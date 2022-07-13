@@ -20,9 +20,9 @@
   padding: 1rem;
 }
 
-.commentContent {
+.commentContent header {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
 }
 
