@@ -12,13 +12,7 @@
 @media (max-width: 768px) {
 
   html {
-    font-size: 87.5%; 
-    //         se 16px -> 100%
-    // e queremos 14px  - x= 87.5%
-
-    //    Isso para deixar o padrão
-    // do sistema escolher a fonte
-    // padrão
+    font-size: 87.5%;
   }
 
   .wrapper {
