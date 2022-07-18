@@ -11,6 +11,11 @@ export function Post({ author, publishedAt, content }) {
     addSuffix: true
   })
 
+  const handleComment = () => {
+    event.preventDefault();
+    console.log('funcionou!!')
+  }
+
   return (
     <article className={styles.post}>
       <header>
@@ -45,7 +50,7 @@ export function Post({ author, publishedAt, content }) {
           }
       </div>
 
-      <form className={styles.commentForm}>
+      <form onSubmit={handleComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 
         <textarea 
