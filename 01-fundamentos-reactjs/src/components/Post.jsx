@@ -2,9 +2,10 @@ import { Avatar } from './Avatar';
 import { Comment } from './Comments';
 import styles from './Post.module.css';
 import { format } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 
 export function Post({ author, publishedAt }) {
-  const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'")
+  const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'", { locale: ptBR })
 
   return (
     <article className={styles.post}>
