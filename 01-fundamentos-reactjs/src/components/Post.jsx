@@ -1,44 +1,56 @@
 import { Avatar } from './Avatar';
 import { Comment } from './Comments';
 import styles from './Post.module.css';
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 
-export function Post() {
+export function Post({ author, publishedAt, content }) {
+  const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'", { locale: ptBR });
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true
+  })
+
+  const handleComment = () => {
+    event.preventDefault();
+    console.log('funcionou!!')
+  }
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
           
-          <Avatar src="https://github.com/MartinGBB.png" />
+          <Avatar src={author.avatarUrl} />
 
             <div className={styles.authorInfo}>
-              <strong>Martin Brazon</strong>
+              <strong>{author.name}</strong>
               <span>Web Developer</span>
             </div>
         </div>
 
         <time
-          title="11 de fevereiro ás 04:12"
-          dateTime="2022-02-2022 04:12:22"
+          title={publishedDateFormatted}
+          dateTime={publishedAt.toISOString()}
         >
-          Publicado há 1 hora
+          {publishedDateRelativeToNow}
         </time>
       </header>
 
       <div className={styles.content}>
-        <p>Fala galeraa 👋</p>
+          {
+            content.map((item) => {  
+              if (item.type === 'paragraph') {
+                return <p>{item.content}</p>
 
-        <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
-
-        <p><a href="">jane.design/doctorcare</a></p>
-
-        <p>
-          <a href="">#novoprojeto</a> {' '}
-          <a href="">#nlw</a> {' '}
-          <a href="">#rocketseat</a> {' '}
-        </p>
+              } else if (item.type === 'link') {
+                  return <p><a href="#">{item.content}</a></p>
+              }
+            })
+          }
       </div>
 
-      <form className={styles.commentForm}>
+      <form onSubmit={handleComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 
         <textarea 

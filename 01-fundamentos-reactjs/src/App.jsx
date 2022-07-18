@@ -4,6 +4,8 @@ import { Post } from "./components/Post";
 
 import './global.css';
 import styles from './App.module.css';
+import { posts } from "./data";
+
 
 function App() {
   return (
@@ -14,8 +16,18 @@ function App() {
         <Sidebar />
 
         <main>
-          <Post />
-          <Post />
+          { 
+            posts.map((post) => {
+              return (
+                <Post
+                  key={post.id}
+                  author={post.author}
+                  content={post.content}
+                  publishedAt={post.publishedAt}
+                />
+              )
+            })
+          }
         </main>
       </div>
     </div>
