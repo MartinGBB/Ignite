@@ -6,7 +6,8 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) {
-  const [comments, setComments] = useState([1, 2]);
+  const [comments, setComments] = useState([]);
+  const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'", { locale: ptBR });
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
@@ -16,8 +17,12 @@ export function Post({ author, publishedAt, content }) {
 
   const handleComment = () => {
     event.preventDefault();
-    const newComment = event.target.comment.value
-    setComments([...comments, newComment])
+    setComments([...comments, newCommentText]);
+    setNewCommentText('');
+  }
+
+  const handleNewCommentChange = () => {
+    setNewCommentText(event.target.value)
   }
 
   return (
@@ -60,6 +65,8 @@ export function Post({ author, publishedAt, content }) {
         <textarea 
           name="comment"
           placeholder="Deixe um comentario"
+          value={newCommentText}
+          onChange={handleNewCommentChange}
         />
 
         <footer>
