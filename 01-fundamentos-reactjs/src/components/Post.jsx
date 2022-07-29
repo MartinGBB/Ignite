@@ -22,7 +22,12 @@ export function Post({ author, publishedAt, content }) {
   }
 
   function handleNewCommentChange() {
-    setNewCommentText(event.target.value)
+    event.target.setCustomValidity('');
+    setNewCommentText(event.target.value);
+  }
+
+  function handleNewCommentInvalid() {
+    event.target.setCustomValidity('campo obrigatorio')
   }
 
   function deleteComment(commentToDelete) {
@@ -74,6 +79,8 @@ export function Post({ author, publishedAt, content }) {
           placeholder="Deixe um comentario"
           value={newCommentText}
           onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         />
 
         <footer>
