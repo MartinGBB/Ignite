@@ -3,17 +3,33 @@ import { Comment } from './Comments';
 import styles from './Post.module.css';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) {
+  const [comments, setComments] = useState([]);
+  const [newCommentText, setNewCommentText] = useState('');
+
   const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'", { locale: ptBR });
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
     locale: ptBR,
     addSuffix: true
   })
 
-  const handleComment = () => {
+  function handleComment() {
     event.preventDefault();
-    console.log('funcionou!!')
+    setComments([...comments, newCommentText]);
+    setNewCommentText('');
+  }
+
+  function handleNewCommentChange() {
+    setNewCommentText(event.target.value)
+  }
+
+  function deleteComment(commentToDelete) {
+    const commentWithoutDelete = comments.filter((comment => {
+      return comment !== commentToDelete;
+    }))
+    setComments(commentWithoutDelete);
   }
 
   return (
@@ -41,10 +57,10 @@ export function Post({ author, publishedAt, content }) {
           {
             content.map((item) => {  
               if (item.type === 'paragraph') {
-                return <p>{item.content}</p>
+                return <p key={item.content}>{item.content}</p>
 
               } else if (item.type === 'link') {
-                  return <p><a href="#">{item.content}</a></p>
+                  return <p key={item.content}><a href="#">{item.content}</a></p>
               }
             })
           }
@@ -54,7 +70,10 @@ export function Post({ author, publishedAt, content }) {
         <strong>Deixe seu feedback</strong>
 
         <textarea 
+          name="comment"
           placeholder="Deixe um comentario"
+          value={newCommentText}
+          onChange={handleNewCommentChange}
         />
 
         <footer>
@@ -63,9 +82,17 @@ export function Post({ author, publishedAt, content }) {
       </form>
 
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+      {
+        comments.map((comment) => {
+          return (
+            <Comment
+              key={comment}
+              onDeleteComment={deleteComment}
+              content={comment} 
+            />
+          )
+        })
+      }
       </div>
     </article>
   )
