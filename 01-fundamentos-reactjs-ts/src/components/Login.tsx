@@ -1,3 +1,6 @@
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../services/firebase"
+
 import styles from './Login.module.css';
 import photo from '../assets/felix-rostig-UmV2wr-Vbq8-unsplash 1.png'
 import igniteLogo from '../assets/ignite-logo.svg';
@@ -5,6 +8,19 @@ import { GoogleLogo, FacebookLogo, GithubLogo } from 'phosphor-react';
 
 
 export function Login() {
+
+  function handleGoogleLogin() {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result)
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  }
+
   return (
     <div className={styles.content}>
       <img src={photo} />
@@ -18,7 +34,9 @@ export function Login() {
         </div>
 
         <div className={styles.contentButtons}>
-          <button>
+          <button
+            onClick={handleGoogleLogin}
+          >
             <GoogleLogo size={22} weight='bold' />
             Entrar com o Google
           </button>
