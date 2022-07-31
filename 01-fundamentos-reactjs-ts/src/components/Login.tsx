@@ -1,6 +1,8 @@
 import styles from './Login.module.css';
 import photo from '../assets/felix-rostig-UmV2wr-Vbq8-unsplash 1.png'
 import igniteLogo from '../assets/ignite-logo.svg';
+import { GoogleLogo, FacebookLogo, GithubLogo } from 'phosphor-react';
+
 
 export function Login() {
   return (
@@ -16,9 +18,20 @@ export function Login() {
         </div>
 
         <div className={styles.contentButtons}>
-          <button>Entrar com o Google</button>
-          <button>Entrar com o Facebook</button>
-          <button>Entrar com o Github</button>
+          <button>
+            <GoogleLogo size={22} weight='bold' />
+            Entrar com o Google
+          </button>
+
+          <button>
+            <FacebookLogo size={22} />
+            Entrar com o Facebook
+          </button>
+          
+          <button>
+            <GithubLogo />
+            Entrar com o Github
+          </button>
         </div>
       </div>
     </div>
