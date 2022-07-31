@@ -17,7 +17,9 @@ export function Login() {
         </div>
 
         <div className={styles.contentButtons}>
-
+          <button>Entrar com o Google</button>
+          <button>Entrar com o Facebook</button>
+          <button>Entrar com o Github</button>
         </div>
       </div>
     </div>
