@@ -1,7 +1,8 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Avatar } from './Avatar';
 import styles from './Comment.module.css';
+import { MyContext } from './Hooks/Context';
 
 interface CommentsProps {
   content: string;
@@ -9,6 +10,8 @@ interface CommentsProps {
 }
 
 export function Comment({ content, onDeleteComment }: CommentsProps) {
+  const { user } = useContext(MyContext);
+
   const [likeCount, setLikeCount] = useState(0);
 
   function handleDeleteComment() {
@@ -21,13 +24,13 @@ export function Comment({ content, onDeleteComment }: CommentsProps) {
 
   return (
     <div className={styles.comment}>
-      <Avatar hasBorder={false} src="https://github.com/MartinGBB.png" alt="" />
+      <Avatar hasBorder={false} src={user.photoURL} alt="" />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong>Martin Brazon</strong>
+              <strong>{user.displayName}</strong>
               <time
                 title="11 de fevereiro ás 04:12"
                 dateTime="2022-02-2022 04:12:22"

@@ -1,0 +1,95 @@
+.content {
+  display: grid;
+  grid-template-columns: 57.64% 1fr;
+  background: var(--gray-800);
+}
+
+.content > img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.form {
+  padding: 3.87rem 4rem 0 4.6rem;
+}
+
+.contentInfo > img {
+  height: 2rem;
+}
+
+.contentInfo > span {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-left: 0.94rem;
+  color: var(--gray-100);
+}
+
+.contentInfo > h1 {
+  margin-top: 4.95rem;
+  line-height: 2.93rem;
+  color: var(--white);
+  font-size: 2.5rem;
+}
+
+.contentInfo > p {
+  margin-top: 1rem;
+  height: 6.25rem;
+  line-height: 2.93rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+.contentButtons {
+  margin-top: 3.38rem
+}
+
+.contentButtons > button {
+  height: 50px;
+  width: 100%;
+  border-radius: 8px;
+  color: var(--white);
+  border: none;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+
+.contentButtons button svg {
+  position: relative;
+  left: 0;
+  top: 3px;
+}
+
+.contentButtons > button > svg path {
+  stroke-width: 35;
+}
+
+.contentButtons button:nth-child(1) {
+  background: var(--red-600);
+}
+
+.contentButtons button:nth-child(2) {
+  background: var(--blue-300);
+  
+}
+
+.contentButtons button:nth-child(3) {
+  background: var(--black-700);
+  
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    height: 100vh;
+  }
+
+  .content > img {
+    display: none;
+  }
+
+  .form {
+    padding: 3.87rem 3.44rem 0 2.25rem;
+  }
+}
