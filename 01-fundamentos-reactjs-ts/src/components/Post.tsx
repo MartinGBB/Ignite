@@ -1,12 +1,27 @@
-import { Avatar } from './Avatar';
-import { Comment } from './Comments';
-import styles from './Post.module.css';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
-export function Post({ author, publishedAt, content }) {
-  const [comments, setComments] = useState([]);
+import { Avatar } from './Avatar';
+import { Comment } from './Comments';
+
+import styles from './Post.module.css';
+
+interface PostProps {
+  author: {
+    name: string;
+    role: string;
+    avatarUrl: string;
+  }
+  publishedAt: Date;
+  content: {
+    type: 'paragraph' | 'link';
+    content: string;
+  }[];
+}
+
+export function Post({ author, publishedAt, content }: PostProps) {
+  const [comments, setComments] = useState(['Que legal!']);
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'ás' HH:mm'h'", { locale: ptBR });
@@ -15,22 +30,22 @@ export function Post({ author, publishedAt, content }) {
     addSuffix: true
   })
 
-  function handleComment() {
+  function handleComment(event: FormEvent) {
     event.preventDefault();
     setComments([...comments, newCommentText]);
     setNewCommentText('');
   }
 
-  function handleNewCommentChange() {
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
   }
 
-  function handleNewCommentInvalid() {
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('campo obrigatorio')
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: string) {
     const commentWithoutDelete = comments.filter((comment => {
       return comment !== commentToDelete;
     }))
