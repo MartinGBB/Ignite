@@ -1,6 +1,6 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comments';
@@ -14,7 +14,10 @@ interface PostProps {
     avatarUrl: string;
   }
   publishedAt: Date;
-  content: string;
+  content: {
+    type: 'paragraph' | 'link';
+    content: string;
+  }[];
 }
 
 export function Post({ author, publishedAt, content }: PostProps) {
@@ -27,22 +30,22 @@ export function Post({ author, publishedAt, content }: PostProps) {
     addSuffix: true
   })
 
-  function handleComment() {
+  function handleComment(event: FormEvent) {
     event.preventDefault();
     setComments([...comments, newCommentText]);
     setNewCommentText('');
   }
 
-  function handleNewCommentChange() {
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
   }
 
-  function handleNewCommentInvalid() {
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('campo obrigatorio')
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: string) {
     const commentWithoutDelete = comments.filter((comment => {
       return comment !== commentToDelete;
     }))
