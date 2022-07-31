@@ -8,10 +8,11 @@ import styles from './Login.module.css';
 import photo from '../assets/felix-rostig-UmV2wr-Vbq8-unsplash 1.png'
 import igniteLogo from '../assets/ignite-logo.svg';
 import { GoogleLogo, FacebookLogo, GithubLogo } from 'phosphor-react';
+import { Navigate } from "react-router-dom";
 
 
 export function Login() {
-  const { setUser } = useContext(MyContext);
+  const { setUser, user } = useContext(MyContext);
 
   function handleGoogleLogin() {
     const provider = new GoogleAuthProvider();
@@ -25,7 +26,7 @@ export function Login() {
       console.log(error)
     });
   }
-
+  console.log(user)
   return (
     <div className={styles.content}>
       <img src={photo} />
@@ -57,6 +58,7 @@ export function Login() {
           </button>
         </div>
       </div>
+      { user.displayName?.length > 0 && <Navigate to="/blog" /> }
     </div>
   );
 }
