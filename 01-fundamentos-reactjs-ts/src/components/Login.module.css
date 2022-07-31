@@ -1,28 +1,17 @@
 .content {
   display: grid;
   grid-template-columns: 57.64% 1fr;
+  background: var(--gray-800)
 }
 
 .content > img {
   height: 100vh;
   width: 100%;
+  object-fit: cover;
 }
-
-
 
 .form {
   padding: 3.87rem 4rem 3.38rem 4.6rem;
-}
-
-.contentInfo > img {
-  height: 2rem;
-}
-
-.contentInfo > span {
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-left: 0.94rem;
-  color: var(--gray-100);
 }
 
 .contentInfo > h1 {
@@ -48,17 +37,21 @@
   height: 50px;
   width: 100%;
   border-radius: 8px;
-  color: var(--white)
+  color: var(--white);
+  border: none;
+  margin-bottom: 24px;
 }
 
 .contentButtons button:nth-child(1) {
+  background: var(--red-600);
+}
+
+.contentButtons button:nth-child(2) {
+  background: var(--blue-300);
   
 }
 
-.contentButtons button:nth-child(1) {
-  
-}
-
-.contentButtons button:nth-child(1) {
+.contentButtons button:nth-child(3) {
+  background: var(--black-700);
   
 }

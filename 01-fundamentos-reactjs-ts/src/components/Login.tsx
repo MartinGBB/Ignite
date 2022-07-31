@@ -9,9 +9,8 @@ export function Login() {
       <img src={photo} />
 
       <div className={styles.form}>
+        <Header />
         <div className={styles.contentInfo}>
-          <img src={ igniteLogo } alt="logo do ignite" />
-          <span>IgniteFeed</span>
           <h1>Escolha uma opção para entrar</h1>
           <p>Utilize algum dos serviços abaixo para entrar na nossa plataforma.</p>
         </div>
