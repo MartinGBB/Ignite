@@ -1,5 +1,7 @@
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../services/firebase"
+import { useState } from "react";
+
+import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+import { auth } from "../services/firebase";
 
 import styles from './Login.module.css';
 import photo from '../assets/felix-rostig-UmV2wr-Vbq8-unsplash 1.png'
@@ -8,13 +10,14 @@ import { GoogleLogo, FacebookLogo, GithubLogo } from 'phosphor-react';
 
 
 export function Login() {
+  const [user, setUser] = useState<User>({} as User);
 
   function handleGoogleLogin() {
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider)
     .then((result) => {
-      console.log(result)
+      setUser(result.user)
     })
     .catch((error) => {
       console.log(error)
