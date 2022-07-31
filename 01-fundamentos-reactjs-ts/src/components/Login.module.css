@@ -1,0 +1,44 @@
+.content {
+  display: grid;
+  grid-template-columns: 57.64% 1fr;
+}
+
+.content > img {
+  height: 100vh;
+  width: 100%;
+}
+
+
+
+.form {
+  padding: 62px 64px 54px 65px;
+}
+
+.contentInfo > img {
+  height: 2rem;
+}
+
+.contentInfo > span {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-left: 0.94rem;
+  color: var(--gray-100);
+}
+
+.contentInfo > h1 {
+  margin-top: 4.95rem;
+  line-height: 2.93rem;
+  color: var(--white);
+  font-size: 2.5rem;
+}
+
+.contentInfo > p {
+  margin-top: 1rem;
+  line-height: 2.93rem;
+  color: var(--gray-400);
+  line-height: 162.5%;
+}
+
+.contentButtons {
+  
+}

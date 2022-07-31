@@ -5,14 +5,15 @@ import { Post } from "./components/Post";
 import './global.css';
 import styles from './App.module.css';
 import { posts } from "./data";
+import { Login } from "./components/Login";
 
 
 function App() {
   return (
     <div>
-      <Header />
-
-      <div className={styles.wrapper}>
+      {/* <Header /> */}
+      <Login />
+      {/* <div className={styles.wrapper}>
         <Sidebar />
 
         <main>
@@ -29,7 +30,7 @@ function App() {
             })
           }
         </main>
-      </div>
+      </div> */}
     </div>
   )
 }
