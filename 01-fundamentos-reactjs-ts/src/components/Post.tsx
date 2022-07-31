@@ -1,9 +1,11 @@
-import { Avatar } from './Avatar';
-import { Comment } from './Comments';
-import styles from './Post.module.css';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { useState } from 'react';
+
+import { Avatar } from './Avatar';
+import { Comment } from './Comments';
+
+import styles from './Post.module.css';
 
 export function Post({ author, publishedAt, content }) {
   const [comments, setComments] = useState([]);
