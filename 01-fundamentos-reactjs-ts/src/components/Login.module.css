@@ -1,17 +1,28 @@
 .content {
   display: grid;
   grid-template-columns: 57.64% 1fr;
-  background: var(--gray-800)
+  background: var(--gray-800);
 }
 
 .content > img {
-  height: 100vh;
+  height: auto;
   width: 100%;
   object-fit: cover;
 }
 
 .form {
-  padding: 3.87rem 4rem 3.38rem 4.6rem;
+  padding: 3.87rem 4rem 0 4.6rem;
+}
+
+.contentInfo > img {
+  height: 2rem;
+}
+
+.contentInfo > span {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-left: 0.94rem;
+  color: var(--gray-100);
 }
 
 .contentInfo > h1 {
@@ -26,7 +37,7 @@
   height: 6.25rem;
   line-height: 2.93rem;
   color: var(--gray-400);
-  line-height: 162.5%;
+  line-height: 1.6;
 }
 
 .contentButtons {
@@ -54,4 +65,19 @@
 .contentButtons button:nth-child(3) {
   background: var(--black-700);
   
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    height: 100vh;
+  }
+
+  .content > img {
+    display: none;
+  }
+
+  .form {
+    padding: 3.87rem 3.44rem 0 2.25rem;
+  }
 }
