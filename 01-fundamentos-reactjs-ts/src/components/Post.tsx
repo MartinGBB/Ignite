@@ -7,7 +7,17 @@ import { Comment } from './Comments';
 
 import styles from './Post.module.css';
 
-export function Post({ author, publishedAt, content }) {
+interface PostProps {
+  author: {
+    name: string;
+    role: string;
+    avatarUrl: string;
+  }
+  publishedAt: Date;
+  content: string;
+}
+
+export function Post({ author, publishedAt, content }: PostProps) {
   const [comments, setComments] = useState([]);
   const [newCommentText, setNewCommentText] = useState('');
 
