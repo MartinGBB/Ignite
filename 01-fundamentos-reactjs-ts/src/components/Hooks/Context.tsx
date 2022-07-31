@@ -1,3 +1,10 @@
 import { createContext } from "react";
 
-export const MyContext = createContext({});
+interface UserProps {
+  user: {
+    displayName: string;
+    photoURL: string;
+  };
+};
+
+export const MyContext = createContext({} as UserProps);

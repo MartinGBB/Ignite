@@ -5,10 +5,19 @@ interface ChildrenContext {
   children: React.ReactNode;
 }
 
+interface UserProps {
+  user: {
+    displayName: string;
+    photoURL: string;
+  }
+};
+
 const Provider = ({ children }: ChildrenContext) => {
+  const [user, setUser] = useState({} as UserProps);
 
   const contextValue = {
-
+    user,
+    setUser
   };
 
   return (

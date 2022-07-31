@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { MyContext } from "../components/Hooks/Context";
 
 import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
 import { auth } from "../services/firebase";
@@ -10,14 +11,15 @@ import { GoogleLogo, FacebookLogo, GithubLogo } from 'phosphor-react';
 
 
 export function Login() {
-  const [user, setUser] = useState<User>({} as User);
+  const { setUser } = useContext(MyContext);
 
   function handleGoogleLogin() {
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider)
     .then((result) => {
-      setUser(result.user)
+      const { displayName, photoURL } = result.user;
+      setUser({displayName, photoURL})
     })
     .catch((error) => {
       console.log(error)
