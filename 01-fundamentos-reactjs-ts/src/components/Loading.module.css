@@ -1,0 +1,16 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--gray-800)
+}
+
+.loading span {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-left: 0.94rem;
+  color: var(--gray-100);
+}

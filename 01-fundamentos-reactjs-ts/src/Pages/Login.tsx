@@ -10,7 +10,6 @@ import igniteLogo from '../assets/ignite-logo.svg';
 import { GoogleLogo, FacebookLogo, GithubLogo } from 'phosphor-react';
 import { Navigate } from "react-router-dom";
 
-
 export function Login() {
   const { setUser, user } = useContext(MyContext);
 
@@ -48,7 +47,7 @@ export function Login() {
           </button>
 
           <button>
-            <FacebookLogo size={22} />
+            <FacebookLogo size={22} weight='fill' />
             Entrar com o Facebook
           </button>
           
