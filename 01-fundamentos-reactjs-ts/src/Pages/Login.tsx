@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { MyContext } from "../components/Hooks/Context";
 
-import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../services/firebase";
 
 import styles from './Login.module.css';
@@ -58,7 +58,7 @@ export function Login() {
           </button>
         </div>
       </div>
-      { user && <Navigate to="/blog" /> }
+      { user.displayName && <Navigate to="/blog" /> }
     </div>
   );
 }

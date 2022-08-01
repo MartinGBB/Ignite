@@ -10,7 +10,6 @@
 
 .post > header {
   display: flex;
-  aling-items: center;
   justify-content: space-between;
 }
 
