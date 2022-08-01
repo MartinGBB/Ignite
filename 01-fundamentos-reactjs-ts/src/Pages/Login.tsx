@@ -26,7 +26,7 @@ export function Login() {
       console.log(error)
     });
   }
-  console.log(user)
+
   return (
     <div className={styles.content}>
       <img src={photo} />
@@ -58,7 +58,7 @@ export function Login() {
           </button>
         </div>
       </div>
-      { user.displayName?.length > 0 && <Navigate to="/blog" /> }
+      { user && <Navigate to="/blog" /> }
     </div>
   );
 }
