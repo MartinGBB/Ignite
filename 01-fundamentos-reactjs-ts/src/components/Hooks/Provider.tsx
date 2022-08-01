@@ -1,4 +1,3 @@
-import { User } from "firebase/auth";
 import { useState } from "react";
 import { MyContext } from "./Context";
 
@@ -6,8 +5,13 @@ interface ChildrenContext {
   children: React.ReactNode;
 }
 
+interface UserProps {
+  displayName: string | null;
+  photoURL: string | null;
+};
+
 const Provider = ({ children }: ChildrenContext) => {
-  const [user, setUser] = useState<User>({} as User);
+  const [user, setUser] = useState({} as UserProps);
 
   const contextValue = {
     user,

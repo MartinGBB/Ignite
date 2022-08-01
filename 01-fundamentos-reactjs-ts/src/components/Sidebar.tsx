@@ -15,7 +15,7 @@ export function Sidebar() {
         className={styles.cover} 
       />
       <div className={styles.profile}>
-        <Avatar src={user.photoURL} />
+        <Avatar src={user.photoURL || undefined} />
         <strong>{user.displayName}</strong>
         <span>Web Developer</span>
         <footer>
