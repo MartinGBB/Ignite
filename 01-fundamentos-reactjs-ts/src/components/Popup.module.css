@@ -16,8 +16,42 @@
   width: 27.19rem;
   height: 14.9rem;
   text-align: center;
+  border-radius: 8px;
+}
+
+.popUp h1 {
+  font-size: 1.5rem;
+  color: var(--gray-100);
+  line-height: 140%;
+  margin-bottom: 1.4rem;
+}
+
+.popUp p {
+  color: var(--gray-300);
+  line-height: 140%;
+  margin-bottom: 1.4rem;
 }
 
 .contentButtons {
+  margin: auto;
+  width: 266px;
+  height: 48px;
+}
 
+.contentButtons button {
+  margin: auto;
+  width: 120px;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--gray-100);
+}
+
+.contentButtons button:last-child {
+  background: var(--gray-700);
+  margin-left: 8px;
+  color: var(--red-500);
+  width: 120px;
+  height: 48px;
 }
