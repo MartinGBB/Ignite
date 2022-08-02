@@ -32,16 +32,10 @@
   margin-bottom: 1.4rem;
 }
 
-.contentButtons {
-  margin: auto;
-  width: 266px;
-  height: 48px;
-}
-
 .contentButtons button {
   margin: auto;
-  width: 120px;
-  height: 48px;
+  width: 7.5rem;
+  height: 3rem;
   border: none;
   border-radius: 8px;
   background: transparent;
@@ -50,8 +44,6 @@
 
 .contentButtons button:last-child {
   background: var(--gray-700);
-  margin-left: 8px;
+  margin-left: 0.5rem;
   color: var(--red-500);
-  width: 120px;
-  height: 48px;
 }
