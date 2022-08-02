@@ -9,12 +9,13 @@
 
 .popUp {
   position: relative;
-  top: calc(60% - 238px);
+  top: calc(60% - 14.9rem);
   margin: auto;
   background: var(--gray-800);
-  padding: 24px 32px 32px 32px;
+  padding: 1.5rem 2rem 2rem;
   width: 27.19rem;
   height: 14.9rem;
+  text-align: center;
 }
 
 .contentButtons {
