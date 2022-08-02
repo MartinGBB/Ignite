@@ -47,9 +47,3 @@
   margin-left: 0.5rem;
   color: var(--red-500);
 }
-
-@media (max-width: 768px) {
-  .popUp {
-    margin: 0 1.88rem;
-  }
-}
