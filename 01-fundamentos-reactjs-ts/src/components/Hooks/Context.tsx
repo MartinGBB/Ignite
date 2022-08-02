@@ -8,6 +8,8 @@ interface UserProps {
   setUser: (user: { displayName: string | null; photoURL: string | null }) => void;
   confirmDelete: boolean,
   setConfirmDelete: (confirmDelete: boolean) => void;
+  openPopup: boolean;
+  setOpenPopup: (openPopup: boolean) => void;
 };
 
 export const MyContext = createContext({} as UserProps);
