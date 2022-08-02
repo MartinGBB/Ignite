@@ -22,7 +22,7 @@ interface PostProps {
 }
 
 export function Post({ author, publishedAt, content }: PostProps) {
-  const { confirmDelete } = useContext(MyContext);
+  const { confirmDelete, setConfirmDelete } = useContext(MyContext);
   const [comments, setComments] = useState(['Que legal!']);
   const [newCommentText, setNewCommentText] = useState('');
 
@@ -49,9 +49,10 @@ export function Post({ author, publishedAt, content }: PostProps) {
 
   function deleteComment(commentToDelete: string) {
     const commentWithoutDelete = comments.filter((comment => {
-      return comment !== commentToDelete;
+      return confirmDelete ? comment !== commentToDelete : comment;
     }))
     setComments(commentWithoutDelete);
+    setConfirmDelete(false);
   }
 
   const isNewCommentEmpty =  newCommentText.length === 0;
