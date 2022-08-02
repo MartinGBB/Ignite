@@ -1,9 +1,10 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useContext, useState } from 'react';
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comments';
+import { MyContext } from './Hooks/Context';
 
 import styles from './Post.module.css';
 
@@ -21,6 +22,7 @@ interface PostProps {
 }
 
 export function Post({ author, publishedAt, content }: PostProps) {
+  const { confirmDelete } = useContext(MyContext);
   const [comments, setComments] = useState(['Que legal!']);
   const [newCommentText, setNewCommentText] = useState('');
 

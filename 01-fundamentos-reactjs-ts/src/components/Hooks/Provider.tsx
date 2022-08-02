@@ -12,10 +12,13 @@ interface UserProps {
 
 const Provider = ({ children }: ChildrenContext) => {
   const [user, setUser] = useState({} as UserProps);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   const contextValue = {
     user,
-    setUser
+    setUser,
+    confirmDelete,
+    setConfirmDelete
   };
 
   return (
