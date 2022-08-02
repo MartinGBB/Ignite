@@ -61,7 +61,7 @@
   top: 3px;
 }
 
-.contentButtons > button > svg path {
+.contentButtons svg path {
   stroke-width: 35;
 }
 

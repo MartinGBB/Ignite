@@ -42,17 +42,17 @@ export function Login() {
           <button
             onClick={handleGoogleLogin}
           >
-            <GoogleLogo size={22} weight='bold' />
+            <GoogleLogo size={22} weight='bold' viewBox="20 0 256 256" />
             Entrar com o Google
           </button>
 
           <button>
-            <FacebookLogo size={22} weight='fill' />
+            <FacebookLogo size={22} weight='fill' viewBox="20 0 256 256" />
             Entrar com o Facebook
           </button>
           
           <button>
-            <GithubLogo />
+            <GithubLogo size={20} weight="fill" viewBox="20 0 256 256" />
             Entrar com o Github
           </button>
         </div>
