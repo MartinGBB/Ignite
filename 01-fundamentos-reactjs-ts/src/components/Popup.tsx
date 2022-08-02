@@ -7,7 +7,7 @@ export function Popup() {
         <h1>Excluir comentário</h1>
         <p>Você tem certeza que gostaria de excluir este comentário?</p>
 
-        <div>
+        <div className={styles.contentButtons}>
           <button>Cancelar</button>
           <button>Sim, excluir</button>
         </div>

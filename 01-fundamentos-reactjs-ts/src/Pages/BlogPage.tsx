@@ -4,6 +4,7 @@ import { Post } from "../components/Post";
 
 import styles from './BlogPage.module.css';
 import { posts } from "../data";
+import { Popup } from "../components/Popup";
 
 export function BlogPage() {
   return (
@@ -25,6 +26,7 @@ export function BlogPage() {
               )
             })
           }
+          <Popup />
         </main>
       </div>
     </div>
