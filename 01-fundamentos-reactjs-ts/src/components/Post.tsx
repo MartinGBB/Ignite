@@ -22,7 +22,7 @@ interface PostProps {
 }
 
 export function Post({ author, publishedAt, content }: PostProps) {
-  const { confirmDelete, setConfirmDelete } = useContext(MyContext);
+  const { confirmDelete, setConfirmDelete, setOpenPopup } = useContext(MyContext);
   const [comments, setComments] = useState(['Que legal!']);
   const [newCommentText, setNewCommentText] = useState('');
 
@@ -48,10 +48,11 @@ export function Post({ author, publishedAt, content }: PostProps) {
   }
 
   function deleteComment(commentToDelete: string) {
+    setOpenPopup(true)
     const commentWithoutDelete = comments.filter((comment => {
-      return confirmDelete ? comment !== commentToDelete : comment;
+      return comment !== commentToDelete;
     }))
-    setComments(commentWithoutDelete);
+    confirmDelete && setComments(commentWithoutDelete);
     setConfirmDelete(false);
   }
 
@@ -61,7 +62,6 @@ export function Post({ author, publishedAt, content }: PostProps) {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          
           <Avatar src={author.avatarUrl} />
 
             <div className={styles.authorInfo}>

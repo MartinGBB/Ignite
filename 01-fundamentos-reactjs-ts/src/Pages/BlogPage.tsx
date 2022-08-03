@@ -5,8 +5,11 @@ import { Post } from "../components/Post";
 import styles from './BlogPage.module.css';
 import { posts } from "../data";
 import { Popup } from "../components/Popup";
+import { useContext } from "react";
+import { MyContext } from "../components/Hooks/Context";
 
 export function BlogPage() {
+  const { openPopup } = useContext(MyContext);
   return (
     <div>
       <Header />
@@ -26,7 +29,7 @@ export function BlogPage() {
               )
             })
           }
-          <Popup />
+          {openPopup && <Popup />}
         </main>
       </div>
     </div>

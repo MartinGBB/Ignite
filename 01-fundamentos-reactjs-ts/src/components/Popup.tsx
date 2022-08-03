@@ -3,10 +3,15 @@ import { MyContext } from './Hooks/Context';
 import styles from './Popup.module.css';
 
 export function Popup() {
-  const { setConfirmDelete } = useContext(MyContext);
+  const { setConfirmDelete, setOpenPopup } = useContext(MyContext);
 
   function handleDelete() {
     setConfirmDelete(true);
+    setOpenPopup(false);
+  }
+
+  function handlePopup() {
+    setOpenPopup(false);
   }
 
   return (
@@ -16,7 +21,10 @@ export function Popup() {
         <p>Você tem certeza que gostaria de excluir este comentário?</p>
 
         <div className={styles.contentButtons}>
-          <button>
+          <button
+            onClick={handlePopup}
+            type="button"
+          >
             Cancelar
           </button>
           

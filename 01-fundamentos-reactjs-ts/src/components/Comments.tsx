@@ -1,5 +1,5 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Avatar } from './Avatar';
 import styles from './Comment.module.css';
 import { MyContext } from './Hooks/Context';
@@ -10,14 +10,16 @@ interface CommentsProps {
 }
 
 export function Comment({ content, onDeleteComment }: CommentsProps) {
-  const { user } = useContext(MyContext);
+  const { user, confirmDelete, setOpenPopup } = useContext(MyContext);
 
   const [likeCount, setLikeCount] = useState(0);
 
   function handleDeleteComment() {
-     onDeleteComment(content)
+    // setOpenPopup(true)
+    onDeleteComment(content)
   }
-
+  // confirmDelete && onDeleteComment(content)
+  
   function handleLikeComment() {
     setLikeCount(() => likeCount + 1);
   }
@@ -25,7 +27,6 @@ export function Comment({ content, onDeleteComment }: CommentsProps) {
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src={user.photoURL || undefined} alt="" />
-
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
