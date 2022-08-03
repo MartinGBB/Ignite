@@ -1,5 +1,5 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Avatar } from './Avatar';
 import styles from './Comment.module.css';
 import { MyContext } from './Hooks/Context';
@@ -15,10 +15,8 @@ export function Comment({ content, onDeleteComment }: CommentsProps) {
   const [likeCount, setLikeCount] = useState(0);
 
   function handleDeleteComment() {
-    // setOpenPopup(true)
     onDeleteComment(content)
   }
-  // confirmDelete && onDeleteComment(content)
   
   function handleLikeComment() {
     setLikeCount(() => likeCount + 1);
