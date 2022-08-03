@@ -1,9 +1,10 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useContext, useState } from 'react';
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comments';
+import { MyContext } from './Hooks/Context';
 
 import styles from './Post.module.css';
 
@@ -21,6 +22,7 @@ interface PostProps {
 }
 
 export function Post({ author, publishedAt, content }: PostProps) {
+  const { confirmDelete, setConfirmDelete, setOpenPopup } = useContext(MyContext);
   const [comments, setComments] = useState(['Que legal!']);
   const [newCommentText, setNewCommentText] = useState('');
 
@@ -46,10 +48,12 @@ export function Post({ author, publishedAt, content }: PostProps) {
   }
 
   function deleteComment(commentToDelete: string) {
+    setOpenPopup(true)
     const commentWithoutDelete = comments.filter((comment => {
       return comment !== commentToDelete;
     }))
-    setComments(commentWithoutDelete);
+    confirmDelete && setComments(commentWithoutDelete);
+    setConfirmDelete(false);
   }
 
   const isNewCommentEmpty =  newCommentText.length === 0;
@@ -58,7 +62,6 @@ export function Post({ author, publishedAt, content }: PostProps) {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          
           <Avatar src={author.avatarUrl} />
 
             <div className={styles.authorInfo}>

@@ -10,14 +10,14 @@ interface CommentsProps {
 }
 
 export function Comment({ content, onDeleteComment }: CommentsProps) {
-  const { user } = useContext(MyContext);
+  const { user, confirmDelete, setOpenPopup } = useContext(MyContext);
 
   const [likeCount, setLikeCount] = useState(0);
 
   function handleDeleteComment() {
-     onDeleteComment(content)
+    onDeleteComment(content)
   }
-
+  
   function handleLikeComment() {
     setLikeCount(() => likeCount + 1);
   }
@@ -25,7 +25,6 @@ export function Comment({ content, onDeleteComment }: CommentsProps) {
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src={user.photoURL || undefined} alt="" />
-
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
