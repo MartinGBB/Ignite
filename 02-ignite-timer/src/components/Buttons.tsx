@@ -1,12 +1,9 @@
-import { ButtonContentainer, ButtonVariant } from './Button.styles';
+import { ButtonContentainer, ButtonVariant } from './Button.styles'
 
 interface ButtomColor {
-  variant?: ButtonVariant;
+  variant?: ButtonVariant
 }
 
-export function Button({variant='primary'}: ButtomColor) {
-
-  return (
-    <ButtonContentainer variant={variant}>Enviar</ButtonContentainer>
-  )
+export function Button({ variant = 'primary' }: ButtomColor) {
+  return <ButtonContentainer variant={variant}>Enviar</ButtonContentainer>
 }
