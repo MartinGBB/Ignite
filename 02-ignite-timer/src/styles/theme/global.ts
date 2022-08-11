@@ -12,4 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     color: #fff;
     height: 100vh;
   }
+
+  body, input-security, textarea, button {
+    font-family: 'Roboto Mono', monospace, sans serif;
+    font-weight: 400;
+    font-size: 1rem;
+  }
 `;
