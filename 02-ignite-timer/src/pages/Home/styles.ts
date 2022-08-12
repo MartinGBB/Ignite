@@ -42,7 +42,7 @@ const BaseInput = styled.input`
   }
 
   &::placeholder {
-    color: ${(props) => props.theme['gray-100']};
+    color: ${(props) => props.theme['gray-500']};
   }
 `
 
