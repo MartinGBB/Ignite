@@ -26,13 +26,13 @@ export const FormContainer = styled.div`
   flex-wrap: wrap;
 `
 
-export const TaskInput = styled.input`
-
+const BaseInput = styled.input`
+  background: transparent;
 `
 
-export const MinutesAmountInput = styled.input`
-  
-`
+export const TaskInput = styled(BaseInput)``
+
+export const MinutesAmountInput = styled(BaseInput)``
 
 export const CountdownContainer = styled.div`
   font-family: 'Roboto Mono', monospace;
