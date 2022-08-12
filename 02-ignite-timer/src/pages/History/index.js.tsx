@@ -20,25 +20,25 @@ export function History() {
               <td>Tarefa</td>
               <td>20 minutos</td>
               <td>Há 2 meses</td>
-              <StatusContent>Concluido</StatusContent>
+              <StatusContent statusColor="green">Concluido</StatusContent>
             </tr>
             <tr>
               <td>Tarefa</td>
               <td>20 minutos</td>
               <td>Há 2 meses</td>
-              <StatusContent>Concluido</StatusContent>
+              <StatusContent statusColor="green">Concluido</StatusContent>
             </tr>
             <tr>
               <td>Tarefa</td>
               <td>20 minutos</td>
               <td>Há 2 meses</td>
-              <StatusContent>Concluido</StatusContent>
+              <StatusContent statusColor="green">Concluido</StatusContent>
             </tr>
             <tr>
               <td>Tarefa</td>
               <td>20 minutos</td>
               <td>Há 2 meses</td>
-              <StatusContent>Concluido</StatusContent>
+              <StatusContent statusColor="green">Concluido</StatusContent>
             </tr>
           </tbody>
         </table>
