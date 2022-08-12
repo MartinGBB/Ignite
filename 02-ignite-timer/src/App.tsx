@@ -1,15 +1,14 @@
 import { ThemeProvider } from 'styled-components'
-import { Button } from './components/Buttons'
 import { defaultTheme } from './styles/theme/default'
 import { GlobalStyle } from './styles/global'
+import { Home } from './pages/Home'
+import { History } from './pages/History'
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Button />
-      <Button />
-      <Button />
-      <Button />
+      <Home />
+      <History />
 
       <GlobalStyle />
     </ThemeProvider>
