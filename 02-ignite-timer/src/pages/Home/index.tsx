@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { differenceInSeconds } from 'date-fns'
 
 import { HomeContainer, StartCountButton, StoptCountButton } from './styles'
-import { useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { NewCycleForm } from './components/NewCycleForm'
 import { Countdown } from './components/Countdown'
 
@@ -16,6 +16,12 @@ interface Cycle {
   interruptedDate?: Date
   finishedDate?: Date
 }
+
+interface CycleContextType {
+  activeCycle: Cycle | undefined
+}
+
+export const CyclesContext = createContext({} as CycleContextType)
 
 export function Home() {
   const [cycles, setCycles] = useState<Cycle[]>([])
@@ -102,12 +108,10 @@ export function Home() {
   return (
     <HomeContainer>
       <form onSubmit={handleSubmit(handleCreateNewCycle)}>
-        <NewCycleForm />
-        <Countdown
-          activeCycle={activeCycle}
-          setCycles={setCycles}
-          activeCycleId={activeCycleId}
-        />
+        <CyclesContext.Provider value={activeCycle}>
+          <NewCycleForm />
+          <Countdown />
+        </CyclesContext.Provider>
         {activeCycle ? (
           <StoptCountButton onClick={handleInterruptCycle} type="button">
             <HandPalm size={24} />
