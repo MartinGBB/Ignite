@@ -53,19 +53,19 @@ export function CyclesContextProvider({
             ...state,
             cycles: state.cycles.map((cycle) => {
               if (cycle.id === state.activeCycleId) {
-                return { ...cycle, finishedDate: new Date() }
+                return { ...cycle, interruptedDate: new Date() }
               } else {
                 return cycle
               }
             }),
             activeCycleId: null,
           }
-        case 'MARK_CURRET_CYCLE_AS_FINISHED':
+        case 'MARK_CURRENT_CYCLE_AS_FINISHED':
           return {
             ...state,
             cycles: state.cycles.map((cycle) => {
               if (cycle.id === state.activeCycleId) {
-                return { ...cycle, interruptedDate: new Date() }
+                return { ...cycle, finishedDate: new Date() }
               } else {
                 return cycle
               }
