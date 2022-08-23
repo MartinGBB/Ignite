@@ -15,13 +15,13 @@ export function Countdown() {
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
 
   useEffect(() => {
-    let interval: number
+    let interval: any
 
     if (activeCycle) {
       interval = setInterval(() => {
         const difference = differenceInSeconds(
           new Date(),
-          activeCycle.startDate,
+          new Date(activeCycle.startDate),
         )
 
         if (difference >= totalSeconds) {
@@ -45,7 +45,6 @@ export function Countdown() {
   ])
 
   const currentSeconds = activeCycle ? totalSeconds - amountSecoundsPassed : 0
-  console.log(currentSeconds)
   const minutesAmount = Math.floor(currentSeconds / 60)
   const secondsAmount = currentSeconds % 60
 
