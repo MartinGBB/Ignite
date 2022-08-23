@@ -1,3 +1,4 @@
+import { differenceInSeconds } from 'date-fns/esm'
 import React, {
   createContext,
   ReactNode,
@@ -53,17 +54,21 @@ export function CyclesContextProvider({
     },
   )
 
-  const [amountSecoundsPassed, setAmountSecoundsPassed] = useState(0)
+  const { cycles, activeCycleId } = cyclesState
+  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
+
+  const [amountSecoundsPassed, setAmountSecoundsPassed] = useState(() => {
+    if (activeCycle) {
+      return differenceInSeconds(new Date(), new Date(activeCycle.startDate))
+    }
+    return 0
+  })
 
   useEffect(() => {
     const stateJson = JSON.stringify(cyclesState)
 
     localStorage.setItem('@ignite-timer:cycles-state-1.0.0', stateJson)
   }, [cyclesState])
-
-  const { cycles, activeCycleId } = cyclesState
-
-  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
   function setSecondsPassed(seconds: number) {
     setAmountSecoundsPassed(seconds)
