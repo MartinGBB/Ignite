@@ -11,7 +11,7 @@ interface Transaction {
 
 
 interface TransactionsContextType {
-  transaction: Transaction[]
+  transactions: Transaction[]
 }
 
 interface TransactionProviderProps {
@@ -21,12 +21,12 @@ interface TransactionProviderProps {
 export const TransactionsContext = createContext({} as TransactionsContextType)
 
 export function TransactionsProvider({ children }: TransactionProviderProps) {
-  const [transaction,setTransaction] = useState<Transaction[]>([])
+  const [transactions, setTransactions] = useState<Transaction[]>([])
 
   async function loadTransactions() {
     const response = await fetch("http://localhost:3001/transactions")
     const data = await response.json()
-    setTransaction(data)
+    setTransactions(data)
   }
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
   }, [])
 
   return (
-    <TransactionsContext.Provider value={{ transaction }}>
+    <TransactionsContext.Provider value={{ transactions }}>
       {children}
     </TransactionsContext.Provider>
   )

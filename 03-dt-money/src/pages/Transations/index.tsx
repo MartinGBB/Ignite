@@ -6,7 +6,7 @@ import { SearchForm } from "./componets/SearchForm";
 import { PriceHighLight, TransactionContainer, TransactionTable } from "./styles";
 
 export function Trasactions() {
-  const { transaction } = useContext(TransactionsContext)
+  const { transactions } = useContext(TransactionsContext)
 
   return (
     <div>
@@ -17,7 +17,7 @@ export function Trasactions() {
         <SearchForm />
         <TransactionTable>
           <tbody>
-              {transaction.map((transaction) => {
+              {transactions.map((transaction) => {
                 return (
                   <tr key={transaction.id}>
                     <td width="50%">{transaction.description}</td>
