@@ -1,4 +1,6 @@
-# ReactJS Ignite
+![Rocketseat](https://repository-images.githubusercontent.com/349411927/39e29500-897d-11eb-9967-8f72695e2483)
+
+
 Este repositório contém os projetos de aprendizagem desenvolvidos na Rocketseat com foco em ReactJs.
 
 ## Fundamentos do ReactJS
